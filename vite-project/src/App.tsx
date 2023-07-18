@@ -2,7 +2,7 @@ import Cards from "./Components/Cards";
 import { ColorSchemeProvider ,MantineProvider,ColorScheme, Paper} from "@mantine/core";
 import LightAndDarkModeButton from "./Components/lightDarkButton";
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
-
+import Button from "./Components/Buttons";
 
 const App: React.FC = () => {
 
@@ -24,8 +24,9 @@ const App: React.FC = () => {
       
       <Paper padding="md" radius={0} style={{minHeight:"100vh"}}>
 
-       <Cards/>
-       <LightAndDarkModeButton/>
+      <LightAndDarkModeButton/>
+      <Cards/>
+      <Button/>
       
       </Paper>
      
