@@ -13,12 +13,14 @@ import {
   Select,
   Group
 } from '@mantine/core';
-
 import logo  from '../../public/assets/logo.png'
 import Profiles from './Profile';
 import LightAndDarkModeButton from './lightDarkButton';
 import TableFun from './TableExample';
 import Skills from './Skills';
+import { IconHome2,IconMessageCircle2 ,IconBell,IconUserCircle} from '@tabler/icons-react';
+import DropDown from './DropDown';
+
 
  const  AppShells = () => {
   const theme = useMantineTheme();
@@ -48,14 +50,14 @@ import Skills from './Skills';
       }
       aside={
         <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-          <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
+          <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 370 }}zIndex={2}>
             <Text>Application sidebar</Text>
           </Aside>
         </MediaQuery>
       }
       header={
         <Header height={{ base: 50, md: 70 }} p="md">
-          <div style={{ display: 'flex', justifyContent:"space-between" ,alignItems: 'center', height: '100%' }}>
+          <div style={{ display: 'flex' ,alignItems: 'center',justifyContent:'space-between', height: '100%' }}>
             <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
               <Burger
                 opened={opened}
@@ -85,8 +87,13 @@ import Skills from './Skills';
               nothingFound="No options"
               data={['React', 'Angular', 'Svelte', 'Vue']}
             /> */}
-            
-            <LightAndDarkModeButton/>
+             <Group  style={{display: 'flex', justifyContent:"center" ,alignItems: 'center' ,gap:"5rem"}}>
+                <IconHome2/>
+                <IconMessageCircle2/>
+                <IconBell/>
+                <IconUserCircle/>
+             </Group>
+            <DropDown/>  
           </div>
         </Header>
       }
