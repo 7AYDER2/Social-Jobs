@@ -9,12 +9,16 @@ import {
   Burger,
   useMantineTheme,
   Button,
-  Chip
+  Chip,
+  Select,
+  Group
 } from '@mantine/core';
 
+import logo  from '../../public/assets/logo.png'
 import Profiles from './Profile';
 import LightAndDarkModeButton from './lightDarkButton';
 import TableFun from './TableExample';
+import Skills from './Skills';
 
  const  AppShells = () => {
   const theme = useMantineTheme();
@@ -29,11 +33,17 @@ import TableFun from './TableExample';
           navbarOffsetBreakpoint="sm"
           asideOffsetBreakpoint="sm"
           navbar={
-        <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 370 }}>
+        <Navbar zIndex={2} p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 370 }}>
            {/* style={{backgroundColor:"gray"}} */}
            <Navbar.Section grow mt="lg" >
            <Profiles/>
+           <Skills />
            </Navbar.Section>
+          <Navbar.Section>
+          <Button color='yellow'  radius="lg">
+      Log out
+    </Button>
+          </Navbar.Section>
         </Navbar>
       }
       aside={
@@ -55,15 +65,34 @@ import TableFun from './TableExample';
                 mr="xl"
               />
             </MediaQuery>
-
-            <Text>Application header</Text>
-            <Chip defaultChecked variant="light" size="xl">Awesome chip</Chip>
+             <Group>
+             <img src={logo} alt="" width={"50px"} height={"50px"} />
+             <Select
+              zIndex={3}
+              placeholder="# Explore"
+              searchable
+              nothingFound="No options"
+              radius={'2rem'}
+              data={['ali', 'ahmed', 'hamed', 'mohammed']}
+            />
+             </Group>
+            {/* <Select
+              label="Your favorite framework/library"
+              placeholder="Pick one"
+              searchable
+              onSearchChange={onSearchChange}
+              searchValue={searchValue}
+              nothingFound="No options"
+              data={['React', 'Angular', 'Svelte', 'Vue']}
+            /> */}
+            
             <LightAndDarkModeButton/>
           </div>
         </Header>
       }
     >
       {/* <TableFun/> */}
+    
     </AppShell>
   );
 }
