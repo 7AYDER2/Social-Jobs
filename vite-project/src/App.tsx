@@ -3,7 +3,7 @@ import { ColorSchemeProvider ,MantineProvider,ColorScheme, Paper} from "@mantine
 import LightAndDarkModeButton from "./Components/lightDarkButton";
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import Button from "./Components/Buttons";
-
+import AppShells from "./Components/AppShell";
 const App: React.FC = () => {
 
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -19,17 +19,15 @@ const App: React.FC = () => {
 
   return (
     <>
+      {/* <Paper padding="md" radius={0} style={{minHeight:"100vh"}}> */}
+      {/* <Cards/> */}
+      {/* <Button/> */}
+      {/* </Paper> */}
      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
       <MantineProvider theme={{colorScheme}}>
-      
-      <Paper padding="md" radius={0} style={{minHeight:"100vh"}}>
-
-      <LightAndDarkModeButton/>
-      <Cards/>
-      <Button/>
-      
-      </Paper>
-     
+        <Paper>
+         <AppShells/>
+        </Paper>
       </MantineProvider>
      </ColorSchemeProvider> 
     </>
